@@ -29,3 +29,32 @@
 ### Delete
 - `models.session.delete(jethro)`
 - `models.session.commit()`
+
+### Queries
+- `models.session.query(models.User)` - Gets query object 
+- Print all the Users with a loop!
+```python
+for user in models.session.query(models.User):
+    print(user)
+```
+- Querys just the names and prints out - Return data is a tuple! `('Scott',)`
+```python
+for user in models.session.query(models.User.name):
+    print(user)
+```
+- Want just the name?
+```python
+for user in models.session.query(models.User.name):
+    print(user.name)
+```
+- Order alpha by name
+```python
+for user in models.session.query(models.User.name).order_by(models.User.name):
+    print(user.name)
+```
+- Descending order
+```python
+for user in models.session.query(models.User.name).order_by(models.User.name.desc()):
+    print(user.name)
+```
+- 
