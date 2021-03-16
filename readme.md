@@ -57,4 +57,8 @@ for user in models.session.query(models.User.name).order_by(models.User.name):
 for user in models.session.query(models.User.name).order_by(models.User.name.desc()):
     print(user.name)
 ```
-- 
+- "Slice by" or Limit query return
+```python
+for user in models.session.query(models.User.name).order_by(models.User.name)[:2]:
+    print(user.name)
+```
