@@ -62,3 +62,33 @@ for user in models.session.query(models.User.name).order_by(models.User.name.des
 for user in models.session.query(models.User.name).order_by(models.User.name)[:2]:
     print(user.name)
 ```
+
+- Offset, Then Limit - (Start / Stop)
+```python
+for user in models.session.query(models.User.name).order_by(models.User.name)[2:4]:
+    print(user.name)
+```
+
+- Return as List rather than Tuples
+```python
+models.session.query(models.User).all()
+```
+
+- Just the first one
+```python
+models.session.query(models.User).order_by(models.User.name).first()
+```
+
+- Filters
+```python
+models.session.query(models.User).filter_by(name=="Jethro")
+models.session.query(models.User).filter(models.User.name=="Jethro")
+```
+
+- You can chain Filters!
+```python
+for user in models.session.query(models.User).filter(models.User.name=="Jethro").filter(models.User.nickname="Some other name"):
+    print(user)
+```
+
+- `db_journals` file is the temp holding file.
