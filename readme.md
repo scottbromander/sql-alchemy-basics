@@ -91,4 +91,4 @@ for user in models.session.query(models.User).filter(models.User.name=="Jethro")
     print(user)
 ```
 
-- `db_journals` file is the temp holding file.
+- `db_journals` file is the temp holding file. Deleted after you commit.
